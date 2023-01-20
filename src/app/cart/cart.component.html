@@ -1,0 +1,22 @@
+
+ <app-cart-content [cartProductFromParent]="cartProduct!"
+ (removedItem)="removeFromCart($event)"></app-cart-content>
+
+<div class="container " style="width: 47%;float: right; padding: 10px;margin: 10px;border-radius: 4px; border: 2px solid;">
+  <form style="width: 100%; " (submit)="sendData()"   #form="ngForm">
+    
+    <input #xx="ngModel" type="text" required  style="width: 95%; margin: 10px;" placeholder="name"
+    (ngModelChange)="validateName($event)" [(ngModel)]="name" name="name">
+    <span *ngIf="!nameIsValid && xx.touched" style="color: red;"  >name is required</span>
+    <input type="text"  required (ngModelChange)="validatePhone($event)"
+     [(ngModel)]="phone" name="phone" style="width: 95%; margin: 10px;" placeholder="phone" 
+    minlength="12" >
+    <div *ngIf="!phoneIsValid" style="color: red;"> phone must be  digits and min length=12</div>
+    <input type="text" [required]="false"  style="width: 95%; margin: 10px;" placeholder="address">
+    <input [disabled]="form.invalid" type="submit" value="Submit">
+    
+  </form>
+  
+  
+  </div>
+ 

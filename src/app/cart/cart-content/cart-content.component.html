@@ -1,0 +1,17 @@
+<div class="container " style="width: 47%; height: 100%;padding: 7px;float: left;margin: 10px;border-radius: 4px; border: 2px solid;">
+    <div *ngFor="let prod of cartProductFromParent" class="card  d-inline-block m-5 p-2  .container" style="width: 18rem; ">
+      <div>
+        <img class="card-img-top img-rounded d-inline " style="height: 18rem;"
+         src="{{prod!.items.url}}" alt="Card image cap" >
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{prod!.items.name}}</h5>
+        <h5 class="card-title">{{prod!.items.price}}</h5>
+        <p class="card-text">{{prod!.items.description}}</p>
+        <label>Total Items : </label><input value="{{prod.count}}" type="number" style="width: auto;">
+      </div>
+      <button class="btn btn-danger" (click)="removeFromCart(prod!.items)">Remove one</button><span><<>></span>
+      <button class="btn btn-danger" (click)="removeAllFromCart(prod!.items)">Remove all</button>
+    </div>
+   <div >Total cost of products in cart = {{totalAmount}}</div>
+  </div>

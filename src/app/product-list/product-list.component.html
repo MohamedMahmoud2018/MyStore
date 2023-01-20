@@ -1,0 +1,27 @@
+
+<br>
+<div *ngFor="let prod of products" class="card  d-inline-block m-5 p-2  .container" style="width: 18rem; ">
+ <a routerLink="/product/{{prod.id}}">
+  <div>
+    <img class="card-img-top img-rounded " style="height: 18rem;" src="{{prod.url}}" alt="Card image cap" >
+  </div>
+</a>
+  <div class="card-body">
+    <input type="text" hidden #prodId value="{{prod.id}}">
+    <h5 class="card-title">{{prod.name}}</h5>
+    <h5 class="card-title">{{prod.price}}</h5>
+    <p class="card-text">{{prod.description}}</p>
+    
+    <select class="d-block" width="" #count>
+      
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    <br>
+    <button class="btn btn-primary" (click)="addProductToCart(prodId.value,count.value)">Add To Cart</button>
+  </div>
+ 
+</div>
+ 
+
